@@ -119,6 +119,18 @@ public class CardOrderTest {
 
     }
 
+    @Test
+    public void shouldNotAcceptWithoutCheckbox(){
+
+        driver.findElement(By.cssSelector("[data-test-id=name] input")).sendKeys("Анна Асафьева");
+        driver.findElement(By.cssSelector("[data-test-id=phone] input")).sendKeys("+79998887766");
+        driver.findElement(By.className("button__content")).click();
+
+        WebElement result = driver.findElement(By.cssSelector("[data-test-id='agreement'].input_invalid .checkbox__text"));
+
+        assertTrue(result.isDisplayed());
+    }
+
 
 
 
